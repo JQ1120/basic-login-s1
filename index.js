@@ -43,6 +43,26 @@ function login(username,password)
     }
 }
 
+function register(newusername,newpassword,newname,newemail){
+    //TODO: Check if username exist
+    let matched=dbUsers.find(element => element.username == newusername)
+    if (matched){
+        return "Username is unavailable. Please try again!"
+    } else{
+        dbUsers.push({
+            username:newusername,
+            password:newpassword,
+            name:newname,
+            email:newemail,
+        })
+    }
+    
+}
 //try to login
-console.log(login("cheok","password"))
-console.log(login("cheok","12345"))
+//console.log(login("cheok","password"))
+//console.log(login("cheok","12345"))
+console.log(login ("utem","123456"))
+
+console.log(register("utem","123456","utem","utem@gmail.com"))
+console.log(login("utem","123456"))
+console.log(register("utem","123456","utem","utem@gmail.com"))
